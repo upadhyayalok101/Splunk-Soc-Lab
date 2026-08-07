@@ -1,10 +1,9 @@
-Splunk Logs (ACEP SOC Lab)
 # 🔍 Splunk Logs — ACEP SOC Lab
 
 Welcome to the training package dataset directory. All manuals, answer keys, and project directory structures have been removed and flattened to leave only the necessary Splunk data files.
+
 ---
 
-## 📋 SPLUNK DATASET UPLOAD REFERENCE
 ## 📋 Splunk Dataset Upload Reference
 
 Below is a reference guide for uploading the 14 flattened files in this directory to Splunk:
@@ -13,21 +12,6 @@ Below is a reference guide for uploading the 14 flattened files in this director
 
 For each of the following files, navigate to **Settings ➔ Add Data ➔ Upload** in Splunk. Set the **Index** to `main` and choose the corresponding **Source Type**:
 
-| # | File Name | Recommended Source Type |
-|---|---|---|
-| 1 | `windows_security_logs.csv` | `csv` |
-| 2 | `sysmon_events.csv` | `csv` |
-| 3 | `auth.log` | `syslog` |
-| 4 | `syslog.log` | `syslog` |
-| 5 | `cron.log` | `syslog` |
-| 6 | `firewall_logs.csv` | `csv` |
-| 7 | `vpn_logs.csv` | `csv` |
-| 8 | `proxy_logs.csv` | `csv` |
-| 9 | `dns_logs.csv` | `csv` |
-| 10 | `email_logs.csv` | `csv` |
-| 11 | `powershell_logs.csv` | `csv` |
-| 12 | `file_access_logs.csv` | `csv` |
-| 13 | `usb_activity_logs.csv` | `csv` |
 | # | File Name | Recommended Source Type | Description / Use Case |
 | :---: | :--- | :---: | :--- |
 | **1** | `windows_security_logs.csv` | `csv` | Windows Security event logs (logins, privilege escalations, etc.) |
@@ -46,15 +30,11 @@ For each of the following files, navigate to **Settings ➔ Add Data ➔ Upload*
 
 ---
 
- For each of the following files, navigate to **Settings ➔ Add Data ➔ Upload*
+### 2. Lookup Tables (File-based Lookup)
+
 The following file is a lookup table to map and enrich usernames with employee details (real name, job title, department, etc.):
 
 *   **File Name:** `user_accounts.csv`
-*   **Splunk Configuration:**
-    1. Go to **Settings ➔ Lookups ➔ Lookup table files ➔ New Lookup Table File**.
-    2. Set **Destination App** to `search`, choose `user_accounts.csv`, and name the destination filename `user_accounts.csv`.
-    3. Go to **Settings ➔ Lookups ➔ Lookup definitions ➔ New Lookup Definition**.
-    4. Set name and lookup file to `user_accounts.csv`, type to `File-based`, and save.
 *   **Splunk Configuration Steps:**
 
 > [!IMPORTANT]
@@ -74,10 +54,3 @@ The following file is a lookup table to map and enrich usernames with employee d
    - Save.
 
 ---
-
-### 🛠️ Getting Started in Splunk
-
-1. Ensure your Splunk instance is running.
-2. Create the index `main` if it does not already exist (usually default).
-3. Follow the upload reference table above to ingest each dataset file.
-4. Verify ingestion by searching `index="main"` in your Search App.
